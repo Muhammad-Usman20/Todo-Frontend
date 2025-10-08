@@ -1,0 +1,390 @@
+/* * {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #252525;
+  color: #fff;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: fit-content;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.input_holder {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+input,
+button {
+  padding: 10px 20px;
+  background-color: #696969;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+input {
+  width: 200px;
+}
+
+input::placeholder {
+  color: #fff;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #4d4d4d;
+}
+
+.list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.toDo {
+  background-color: #696969;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon:hover {
+  cursor: pointer;
+  color: #cfcfcf;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0000006c;
+  display: grid;
+  place-items: center;
+}
+
+.popup {
+  position: relative;
+  background-color: #696969;
+  width: 400px;
+  padding: 10px;
+}
+
+.cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.cross:hover {
+  color: #c4c4c4;
+}
+
+.popup h1 {
+  text-align: center;
+  font-weight: 500;
+}
+
+.popup__input_holder {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+.popup__input_holder input,
+.popup__input_holder button {
+  background-color: #fff;
+  color: #000;
+}
+
+.popup__input_holder input::placeholder {
+  color: #383838;
+}
+
+.popup__input_holder button:hover {
+  background-color: #c4c4c4;
+} */
+
+
+
+
+/* 🌙 Global Reset & Font */
+* {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🌌 Dark Background and Text */
+body {
+  background-color: #0f0f0f;
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* 🧱 Container */
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  background: #1b1b1b;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 🏷️ Title */
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #00b4d8, #90e0ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 📝 Input Area */
+.input_holder {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+input,
+button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* 🌫 Input Styling */
+input {
+  background-color: #2a2a2a;
+  color: #fff;
+  width: 250px;
+}
+
+input::placeholder {
+  color: #bdbdbd;
+}
+
+/* 🎛 Button Styling */
+button {
+  background-color: #00b4d8;
+  color: #fff;
+  font-weight: 500;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #0096c7;
+  transform: scale(1.03);
+}
+
+/* 🧾 Todo List */
+.list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 🗂 Individual Todo */
+.toDo {
+  background-color: #2a2a2a;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.toDo:hover {
+  background-color: #383838;
+  transform: translateY(-3px);
+}
+
+/* 🧩 Icons */
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  transition: color 0.2s ease;
+}
+
+.icon:hover {
+  cursor: pointer;
+  color: #00b4d8;
+}
+
+/* 💬 Popup Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+/* 🪟 Popup Box */
+.popup {
+  position: relative;
+  background-color: #1e1e1e;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ❌ Close Button */
+.cross {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  color: #bdbdbd;
+  font-size: 1.2rem;
+}
+
+.cross:hover {
+  color: #fff;
+}
+
+/* 🧾 Popup Title */
+.popup h1 {
+  text-align: center;
+  font-weight: 500;
+  color: #00b4d8;
+}
+
+/* ✏️ Popup Input & Button */
+.popup__input_holder {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.popup__input_holder input,
+.popup__input_holder button {
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
+.popup__input_holder input {
+  background-color: #fff;
+  color: #000;
+  width: 200px;
+}
+
+.popup__input_holder input::placeholder {
+  color: #383838;
+}
+
+.popup__input_holder button {
+  background-color: #00b4d8;
+  color: #fff;
+}
+
+.popup__input_holder button:hover {
+  background-color: #0096c7;
+}
+
+/* 📱 Responsive Styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .input_holder {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    width: 80%;
+  }
+
+  button {
+    width: 80%;
+  }
+
+  .container {
+    max-width: 90%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .toDo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .popup {
+    width: 95%;
+  }
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
